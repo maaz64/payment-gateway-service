@@ -52,8 +52,12 @@ router.post('/register',register);
  *             properties:
  *               email:
  *                 type: string
+ *                 description: The email of the volunteer
+ *                 example: john.doe@example.com             
  *               password:
  *                 type: string
+ *                 description: Password of the user
+ *                 example: abc12345
  *     responses:
  *       200:
  *         description: User authenticated successfully
@@ -73,6 +77,23 @@ router.post('/login', login);
  *     responses:
  *       200:
  *         description: User profile retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                   description: The User ID
+ *                   example: d5fE_asz
+ *                 name:
+ *                   type: string
+ *                   description: The name of the User
+ *                   example: John Doe
+ *                 email:
+ *                   type: string
+ *                   description: The email of the user
+ *                   example: john.doe@example.com
  *       401:
  *         description: Unauthorized
  */
