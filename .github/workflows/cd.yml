@@ -1,0 +1,21 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: Pull Docker image
+      run: sudo docker pull maaz64/payment-service-backend:latest
+    - name: Delete Old docker container
+      run: sudo docker rm -f payment-service-backend-container || true
+    - name: Run Docker Container
+      run: sudo docker run -d -p 3000:3000 -e MONGO_URL = "mongodb+srv://mohdmaaz64:3915@paymentgateway.y6zzpx3.mongodb.net/?retryWrites=true&w=majority&appName=paymentgateway" -e JWT_SECRET = "dv4nhtr456sbhy64" --name payment-service-backend-container maaz64/payment-service-backend
