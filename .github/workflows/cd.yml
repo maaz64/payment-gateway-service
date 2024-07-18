@@ -11,19 +11,8 @@ jobs:
   build:
 
     runs-on: self-hosted
-      strategy:
-        matrix:
-          node-version: [20.x]
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Clean npm cache
-      run: npm cache clean --force
-    - run: npm ci
     - name: Pull Docker image
       run: sudo docker pull maaz64/payment-service-backend:latest
     - name: Delete Old docker container
