@@ -50,6 +50,9 @@ connectDB().then(() => {
 
 // Routes
 
+app.get('/',(_,res)=>{
+  return res.status(200).json({message:"Success"})
+})
 app.use('/api', router);
 
 // Swagger setup
