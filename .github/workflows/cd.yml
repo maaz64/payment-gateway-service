@@ -16,6 +16,6 @@ jobs:
     - name: Pull Docker image
       run: sudo docker pull maaz64/payment-service-backend:latest
     - name: Delete Old docker container
-      run: sudo docker rm -f payment-service-backend-container || true
+      run: sudo docker rm -f payment-backend-container || true
     - name: Run Docker Container
-      run: sudo docker run -d -p 3000:3000 --name payment-service-backend-container maaz64/payment-service-backend
+      run: sudo docker run -d -p 3000:3000 --name payment-backend-container maaz64/payment-service-backend
