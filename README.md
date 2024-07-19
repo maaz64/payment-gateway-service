@@ -77,10 +77,13 @@ A scalable and secure payment gateway service to handle different types of trans
 2. **Navigate to root folder**
    ```bash
    cd payment-gateway-service
-3. **Install package dependencies**
+3. **create a .env file in root directory define below environment variable**
+   ```bash
+   - MONGO_URL = mongodb+srv://<>username:<password>@cluster.y6zzpx3.mongodb.net/?retryWrites=true&w=majority
+4. **Install package dependencies**
    ```bash
    npm install
-4. **Run the development server**
+5. **Run the development server**
    ```bash
    npm start
 
